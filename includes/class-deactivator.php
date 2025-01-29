@@ -1,7 +1,7 @@
 <?php
 
-class Notify_Deactivator {
+class Simple_Notify_Deactivator {
     public static function deactivate() {
-        // Cleanup tasks if needed
+        flush_rewrite_rules();
     }
 }

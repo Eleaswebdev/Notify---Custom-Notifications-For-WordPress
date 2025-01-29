@@ -1,6 +1,6 @@
 <?php
 
-class Notify_Loader {
+class Simple_Notify_Loader {
     public static function init() {
         // Load traits
         require_once plugin_dir_path(__FILE__) . 'traits/trait-helpers.php';
@@ -23,8 +23,8 @@ class Notify_Loader {
         require_once plugin_dir_path(__FILE__) . 'Database/class-database-handler.php';
 
         // Initialize components
-        new Notify_Admin_Notices();
-        new Notify_Admin_Settings();
-        new Notify_Frontend_Notifications();
+        new Simple_Notify_Admin_Notices();
+        new Simple_Notify_Admin_Settings();
+        new Simple_Notify_Frontend_Notifications();
     }
 }

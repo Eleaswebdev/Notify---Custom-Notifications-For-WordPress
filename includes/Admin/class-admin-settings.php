@@ -1,6 +1,6 @@
 <?php
 
-class Notify_Admin_Settings {
+class Simple_Notify_Admin_Settings {
     public function __construct() {
         add_action("admin_menu", [$this, "add_settings_page"]);
         add_action("admin_init", [$this, "register_settings"]);
@@ -8,20 +8,51 @@ class Notify_Admin_Settings {
 
     public function add_settings_page() {
        add_options_page(
-        'Notify Settings',
-        'Notify Settings',
+        'Simple Notify Settings',
+        'Simple Notify Settings',
         'manage_options',
-        'notify-settings',
+        'simple-notify-settings',
         [$this, 'settings_page_content'],
        );
 
     }
 
     public function register_settings() {
-        register_setting('notify-options', 'notification_enable_emails_new_user_register');
-        register_setting('notify-options', 'notification_email_template_new_user_register');
-        register_setting('notify-options', 'notification_enable_emails_new_post_publish');
-        register_setting('notify-options', 'notification_email_template_new_post_publish');
+        register_setting(
+            'simple-notify-options', 
+            'notification_enable_emails_new_user_register', 
+            array( $this, 'sanitize_notification_enable_emails' )
+        );
+        
+        register_setting(
+            'simple-notify-options', 
+            'notification_email_template_new_user_register', 
+            array( $this, 'sanitize_notification_email_template' )
+        );
+        
+        register_setting(
+            'simple-notify-options', 
+            'notification_enable_emails_new_post_publish', 
+            array( $this, 'sanitize_notification_enable_emails' )
+        );
+        
+        register_setting(
+            'simple-notify-options', 
+            'notification_email_template_new_post_publish', 
+            array( $this, 'sanitize_notification_email_template' )
+        );
+    }
+
+    // Sanitization callback for enabling email settings
+    public function sanitize_notification_enable_emails( $input ) {
+        // Ensure the input is a boolean value (1 or 0)
+        return ( $input == 1 ) ? 1 : 0;
+    }
+
+    // Sanitization callback for email template settings
+    public function sanitize_notification_email_template( $input ) {
+        // Sanitize as a string, stripping tags for security
+        return sanitize_text_field( $input );
     }
 
     public function settings_page_content() {
@@ -30,8 +61,8 @@ class Notify_Admin_Settings {
             <h1>Notification Settings</h1>
             <form method="post" action="options.php">
                 <?php
-                settings_fields('notify-options');
-                do_settings_sections('notify-settings');
+                settings_fields('simple-notify-options');
+                do_settings_sections('simple-notify-settings');
                 ?>
                 <table class="form-table">
                     <tr valign="top">
