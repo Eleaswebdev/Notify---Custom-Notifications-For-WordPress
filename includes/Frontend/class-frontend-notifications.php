@@ -1,6 +1,6 @@
 <?php
 
-class Simple_Notify_Frontend_Notifications {
+class SIMPNO_Frontend_Notifications {
     public function __construct() {
         add_action("user_register", [$this, "send_welcome_email"]);
         add_action("publish_post", [$this, "send_new_post_email"], 10, 2);

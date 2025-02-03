@@ -1,6 +1,6 @@
 <?php
 
-class Simple_Notify_Admin_Settings {
+class SIMPNO_Admin_Settings {
     public function __construct() {
         add_action("admin_menu", [$this, "add_settings_page"]);
         add_action("admin_init", [$this, "register_settings"]);
@@ -58,7 +58,7 @@ class Simple_Notify_Admin_Settings {
     public function settings_page_content() {
         ?>
         <div class="wrap">
-            <h1>Notification Settings</h1>
+            <h1>Simple Notify Settings</h1>
             <form method="post" action="options.php">
                 <?php
                 settings_fields('simple-notify-options');

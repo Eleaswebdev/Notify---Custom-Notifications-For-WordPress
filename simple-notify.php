@@ -12,13 +12,13 @@
  */
 
  defined('ABSPATH') || exit;
-
+ define( 'SIMPNO_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
  // Load the loader class
 require_once plugin_dir_path(__FILE__) . 'includes/class-loader.php';
 
-Simple_Notify_Loader::init();
+SIMPNO_Loader::init();
 
 // Register activation and deactivation hooks
-register_activation_hook(__FILE__, ['Simple_Notify_Activator', 'activate']);
-register_deactivation_hook(__FILE__, ['Simple_Notify_Deactivator', 'deactivate']);
+register_activation_hook(__FILE__, ['SIMPNO_Activator', 'activate']);
+register_deactivation_hook(__FILE__, ['SIMPNO_Deactivator', 'deactivate']);
 

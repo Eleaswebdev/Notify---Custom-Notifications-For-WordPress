@@ -1,6 +1,6 @@
 <?php
 
-class Simple_Notify_Database_Handler {
+class SIMPNO_Database_Handler {
     public static function create_table() {
         global $wpdb;
 

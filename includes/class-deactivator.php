@@ -1,6 +1,6 @@
 <?php
 
-class Simple_Notify_Deactivator {
+class SIMPNO_Deactivator {
     public static function deactivate() {
         flush_rewrite_rules();
     }
