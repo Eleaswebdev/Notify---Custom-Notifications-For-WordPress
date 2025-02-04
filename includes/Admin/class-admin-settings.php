@@ -20,25 +20,25 @@ class SIMPNO_Admin_Settings {
     public function register_settings() {
         register_setting(
             'simple-notify-options', 
-            'notification_enable_emails_new_user_register', 
+            'simpno_enable_emails_new_user_register', 
             array( $this, 'sanitize_notification_enable_emails' )
         );
         
         register_setting(
             'simple-notify-options', 
-            'notification_email_template_new_user_register', 
+            'simpno_email_template_new_user_register', 
             array( $this, 'sanitize_notification_email_template' )
         );
         
         register_setting(
             'simple-notify-options', 
-            'notification_enable_emails_new_post_publish', 
+            'simpno_enable_emails_new_post_publish', 
             array( $this, 'sanitize_notification_enable_emails' )
         );
         
         register_setting(
             'simple-notify-options', 
-            'notification_email_template_new_post_publish', 
+            'simpno_email_template_new_post_publish', 
             array( $this, 'sanitize_notification_email_template' )
         );
     }
@@ -68,15 +68,15 @@ class SIMPNO_Admin_Settings {
                     <tr valign="top">
                         <th scope="row">Enable New User Register Notifications</th>
                         <td>
-                            <input type="checkbox" name="notification_enable_emails_new_user_register" value="1"
-                                <?php checked(1, get_option('notification_enable_emails_new_user_register'), true); ?> />
+                            <input type="checkbox" name="simpno_enable_emails_new_user_register" value="1"
+                                <?php checked(1, get_option('simpno_enable_emails_new_user_register'), true); ?> />
                         </td>
                     </tr>
                     <tr valign="top">
                         <th scope="row">Email Template</th>
                         <td>
-                            <textarea name="notification_email_template_new_user_register" rows="10" cols="50"
-                                class="large-text"><?php echo esc_textarea(get_option('notification_email_template_new_user_register')); ?></textarea>
+                            <textarea name="simpno_email_template_new_user_register" rows="10" cols="50"
+                                class="large-text"><?php echo esc_textarea(get_option('simpno_email_template_new_user_register')); ?></textarea>
                         </td>
                     </tr>
                 </table>
@@ -84,15 +84,15 @@ class SIMPNO_Admin_Settings {
                     <tr valign="top">
                         <th scope="row">Enable Post Publish Email Notifications</th>
                         <td>
-                            <input type="checkbox" name="notification_enable_emails_new_post_publish" value="1"
-                                <?php checked(1, get_option('notification_enable_emails_new_post_publish'), true); ?> />
+                            <input type="checkbox" name="simpno_enable_emails_new_post_publish" value="1"
+                                <?php checked(1, get_option('simpno_enable_emails_new_post_publish'), true); ?> />
                         </td>
                     </tr>
                     <tr valign="top">
                         <th scope="row">Email Template</th>
                         <td>
-                            <textarea name="notification_email_template_new_post_publish" rows="10" cols="50"
-                                class="large-text"><?php echo esc_textarea(get_option('notification_email_template_new_post_publish')); ?></textarea>
+                            <textarea name="simpno_email_template_new_post_publish" rows="10" cols="50"
+                                class="large-text"><?php echo esc_textarea(get_option('simpno_email_template_new_post_publish')); ?></textarea>
                         </td>
                     </tr>
                 </table>

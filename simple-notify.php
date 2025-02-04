@@ -16,6 +16,7 @@
  // Load the loader class
 require_once plugin_dir_path(__FILE__) . 'includes/class-loader.php';
 
+
 SIMPNO_Loader::init();
 
 // Register activation and deactivation hooks
