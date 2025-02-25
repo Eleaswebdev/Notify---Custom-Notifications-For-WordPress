@@ -7,7 +7,7 @@ class SIMPNO_Database_Handler {
 		$table_name      = $wpdb->prefix . 'custom_notifications';
 		$charset_collate = $wpdb->get_charset_collate();
 
-		$sql = "CREATE TABLE $table_name (
+		$sql = "CREATE TABLE IF NOT EXISTS $table_name (
             id INT NOT NULL AUTO_INCREMENT,
             user_id BIGINT NOT NULL,
             message TEXT NOT NULL,
