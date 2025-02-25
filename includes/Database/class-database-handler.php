@@ -7,6 +7,10 @@ class SIMPNO_Database_Handler {
 		$table_name      = $wpdb->prefix . 'custom_notifications';
 		$charset_collate = $wpdb->get_charset_collate();
 
+		if( ! function_exists( 'dbDelta' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+		}
+
 		$sql = "CREATE TABLE IF NOT EXISTS $table_name (
             id INT NOT NULL AUTO_INCREMENT,
             user_id BIGINT NOT NULL,
@@ -16,7 +20,7 @@ class SIMPNO_Database_Handler {
             PRIMARY KEY (id)
         ) $charset_collate;";
 
-		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+		
 		dbDelta( $sql );
 	}
 }
